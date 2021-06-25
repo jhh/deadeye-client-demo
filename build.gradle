@@ -17,6 +17,8 @@ dependencies {
     implementation("org.strykeforce:deadeye:21.0.0")
     implementation("edu.wpi.first.ntcore:ntcore-java:2021.3.1")
     implementation("edu.wpi.first.ntcore:ntcore-jni:2021.3.1:osxx86-64")
+    implementation("edu.wpi.first.ntcore:ntcore-jni:2021.3.1:windowsx86-64")
+    implementation("edu.wpi.first.ntcore:ntcore-jni:2021.3.1:linuxx86-64")
     implementation("edu.wpi.first.wpiutil:wpiutil-java:2021.3.1")
 }
 
