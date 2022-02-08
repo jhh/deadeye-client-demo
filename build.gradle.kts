@@ -9,17 +9,20 @@ repositories {
 }
 
 dependencies {
-    implementation("org.strykeforce:deadeye:21.0.0")
-    implementation("edu.wpi.first.ntcore:ntcore-java:2021.3.1")
-    implementation("edu.wpi.first.ntcore:ntcore-jni:2021.3.1:osxx86-64")
-    implementation("edu.wpi.first.ntcore:ntcore-jni:2021.3.1:windowsx86-64")
-    implementation("edu.wpi.first.ntcore:ntcore-jni:2021.3.1:linuxx86-64")
-    implementation("edu.wpi.first.wpiutil:wpiutil-java:2021.3.1")
+    val wpiVersion = "2022.3.1"
+    implementation("org.strykeforce:deadeye:22.0.0")
+    implementation("edu.wpi.first.ntcore:ntcore-java:$wpiVersion")
+    implementation("edu.wpi.first.ntcore:ntcore-jni:$wpiVersion:osxx86-64")
+    implementation("edu.wpi.first.ntcore:ntcore-jni:$wpiVersion:windowsx86-64")
+    implementation("edu.wpi.first.ntcore:ntcore-jni:$wpiVersion:linuxx86-64")
+    implementation("edu.wpi.first.wpiutil:wpiutil-java:$wpiVersion")
 
     // used by DemoTargetData
-    implementation("com.squareup.okio:okio:2.10.0")
-    implementation("com.squareup.moshi:moshi:1.12.0")
-    implementation("org.jetbrains:annotations:21.0.1")
+    implementation("com.squareup.okio:okio:3.0.0")
+    implementation("com.squareup.moshi:moshi:1.13.0")
+    implementation("org.jetbrains:annotations:22.0.0")
+    implementation("org.slf4j:slf4j-api:1.7.35")
+    implementation("ch.qos.logback:logback-classic:1.2.10")
 }
 
 application {
