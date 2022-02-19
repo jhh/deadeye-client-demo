@@ -12,7 +12,7 @@ public class Main {
     var nti = startNetworkTables();
 
     // Use NetworkTables to connect to Deadeye pipeline daemon
-    var deadeye = new Deadeye<>("F0", DemoTargetData.class, nti);
+    var deadeye = new Deadeye<>("F3", HubTargetData.class, nti);
 
     // prints UprightRectTargetData.toString() to System.out
     deadeye.setTargetDataListener(td -> logger.info("{}", td));
