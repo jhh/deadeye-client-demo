@@ -63,15 +63,17 @@ public class HubTargetData extends TargetListTargetData {
 
     // json d field: bb.tl().x, bb.tl().y, bb.br().x, bb.br().y, center.x, center.y
     private static final JsonReader.Options OPTIONS = JsonReader.Options.of("id", "sn", "v", "ep",
-        "d");
+        "r", "d");
 
     @Override
     public HubTargetData fromJson(BufferedSource source) throws IOException {
+//      System.out.println(source.readUtf8());
       JsonReader reader = JsonReader.of(source);
       String id = null;
       int serial = -1;
       boolean valid = false;
       double errorPixels = 0.0;
+      double range = 0.0;
       List<Rect> targets = new ArrayList<>();
 
       reader.beginObject();
@@ -90,6 +92,9 @@ public class HubTargetData extends TargetListTargetData {
             errorPixels = reader.nextDouble();
             break;
           case 4:
+            range = reader.nextDouble();
+            break;
+          case 5:
             reader.beginArray();
             while (reader.hasNext()) {
               int[] data = new int[DATA_LENGTH];
@@ -106,7 +111,7 @@ public class HubTargetData extends TargetListTargetData {
             reader.endArray();
             break;
           default:
-            var msg = String.format("unexpected JSON field: %s", reader.nextName() );
+            var msg = String.format("unexpected JSON field: %s", reader.nextName());
             throw new IllegalStateException(msg);
         }
       }
